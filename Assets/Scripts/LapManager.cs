@@ -5,14 +5,16 @@ using UnityEngine;
 //Put this on the finish line
 public class LapManager : MonoBehaviour
 {
+    public RaceManager raceManager;
+
     public List<Checkpoint> checkpoints;
     public int totalLaps;
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.GetComponent<LapChecker>())
+        if (collision.gameObject.GetComponent<CarController>())
         {
-            LapChecker agent = collision.gameObject.GetComponent<LapChecker>();
+            CarController agent = collision.gameObject.GetComponent<CarController>();
             if (agent.checkpointIndex == checkpoints.Count)
             {
                 //Increase the agent's current lap
@@ -24,6 +26,7 @@ public class LapManager : MonoBehaviour
                 if (agent.lapNumber > totalLaps)
                 {
                     Debug.Log("Car finishes the race");
+                    raceManager.RecordFinish(agent);
                 }
                 else
                 {

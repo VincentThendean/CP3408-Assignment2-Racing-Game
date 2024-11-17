@@ -10,9 +10,9 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.GetComponent<LapChecker>())
+        if (collision.gameObject.GetComponent<CarController>())
         {
-            LapChecker agent = collision.gameObject.GetComponent<LapChecker>();
+            CarController agent = collision.gameObject.GetComponent<CarController>();
             if(agent.checkpointIndex == index-1)
             {
                 agent.checkpointIndex = index;

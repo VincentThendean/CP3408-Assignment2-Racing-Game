@@ -9124,8 +9124,8 @@ GameObject:
   - component: {fileID: 1358913373}
   - component: {fileID: 1358913372}
   m_Layer: 0
-  m_Name: Car
-  m_TagString: Untagged
+  m_Name: Player Car
+  m_TagString: Racer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9220,6 +9220,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9b1d5667ead5d449fddbf72461c189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carID: 0
+  carName: Player
+  finishTime: 0
   lapNumber: 0
   checkpointIndex: 0
 --- !u!1001 &1375337450
@@ -11994,6 +11997,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3622236371473616758, guid: 34d00f8ccbb80704d8a518cddf186a36, type: 3}
   m_PrefabInstance: {fileID: 1744168323}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1751069409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1751069410}
+  - component: {fileID: 1751069411}
+  m_Layer: 0
+  m_Name: Race Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1751069410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751069409}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.526774, y: -1.5419524, z: 7.368854}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1751069411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751069409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9355779f7dadb294abafe945a0ce1cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfCars: 4
 --- !u!4 &1754787140 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7017605313112068023, guid: 21cf7878e0787f94b916e1c501f18078, type: 3}
@@ -15288,8 +15336,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4526667333968210741, guid: d47575d90bbdd1447b5731a5796e33fc, type: 3}
       propertyPath: totalLaps
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4526667333968210741, guid: d47575d90bbdd1447b5731a5796e33fc, type: 3}
+      propertyPath: raceManager
+      value: 
+      objectReference: {fileID: 1751069411}
     - target: {fileID: 4526667333968210741, guid: d47575d90bbdd1447b5731a5796e33fc, type: 3}
       propertyPath: checkpoints.Array.size
       value: 3
@@ -15306,6 +15358,10 @@ PrefabInstance:
       propertyPath: checkpoints.Array.data[2]
       value: 
       objectReference: {fileID: 928576278}
+    - target: {fileID: 5637951677455041368, guid: d47575d90bbdd1447b5731a5796e33fc, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7626509280337815226, guid: d47575d90bbdd1447b5731a5796e33fc, type: 3}
       propertyPath: m_Name
       value: Finish Line
@@ -15370,3 +15426,4 @@ SceneRoots:
   - {fileID: 1358913370}
   - {fileID: 725875488}
   - {fileID: 2011846603}
+  - {fileID: 1751069410}

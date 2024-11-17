@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LapChecker : MonoBehaviour
+public class CarController : MonoBehaviour
 {
+    public int carID; // Unique ID for each car
+    public string carName; // Optional: A unique name for the car
+    public float finishTime; // Time when the car crosses the finish line
     public int lapNumber;
     public int checkpointIndex;
 
