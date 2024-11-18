@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class IDrive : MonoBehaviour
+public class AICarController : MonoBehaviour
 {
-    public NavMeshAgent agent;  // NavMesh代理
-    public Transform[] waypoints;  // 路径点数组
+    public NavMeshAgent agent;  
+    public Transform[] waypoints;  
 
-    private int currentWaypointIndex = 0;  // 当前路径点索引
+    private int currentWaypointIndex = 0;  
 
     void Start()
     {
@@ -28,7 +28,7 @@ public class IDrive : MonoBehaviour
 
     void Update()
     {
-        // 检查是否到达路径点
+        
         if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance && !agent.hasPath && agent.velocity.sqrMagnitude == 0f)
         {
             MoveToNextWaypoint();
@@ -40,14 +40,12 @@ public class IDrive : MonoBehaviour
         if (waypoints.Length == 0)
             return;
 
-        // 设置下一个路径点为目的地
+    
         agent.SetDestination(waypoints[currentWaypointIndex].position);
 
-        // 更新路径点索引
         currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
     }
 
-    // 在编辑器中显示路径点的连线，方便调试
     void OnDrawGizmos()
     {
         if (waypoints == null || waypoints.Length < 2)
