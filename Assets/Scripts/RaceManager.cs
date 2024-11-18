@@ -36,6 +36,11 @@ public class RaceManager : MonoBehaviour
 
             Debug.Log($"Car {car.carName} finished in position {finishOrder.Count} at time {car.finishTime}");
         }
+
+        if (finishOrder.Count == cars.Count)
+        {
+            Debug.Log("Race finished");
+        }
     }
 
 
