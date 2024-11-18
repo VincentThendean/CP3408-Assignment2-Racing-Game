@@ -6,7 +6,8 @@ public class AICarController : MonoBehaviour
     public NavMeshAgent agent;  
     public Transform[] waypoints;  
 
-    private int currentWaypointIndex = 0;  
+    private int currentWaypointIndex = 0;
+    public float passByDistance = 2f;
 
     void Start()
     {
@@ -28,8 +29,8 @@ public class AICarController : MonoBehaviour
 
     void Update()
     {
-        
-        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance && !agent.hasPath && agent.velocity.sqrMagnitude == 0f)
+
+        if (!agent.pathPending && agent.remainingDistance <= passByDistance)
         {
             MoveToNextWaypoint();
         }
