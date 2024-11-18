@@ -13,7 +13,9 @@ public class Checkpoint : MonoBehaviour
         if (collision.gameObject.GetComponent<CarController>())
         {
             CarController agent = collision.gameObject.GetComponent<CarController>();
-            if(agent.checkpointIndex == index-1)
+
+            Debug.Log($"{agent.carName} has entered checkpoint {index}");
+            if (agent.checkpointIndex == index-1)
             {
                 agent.checkpointIndex = index;
             }
