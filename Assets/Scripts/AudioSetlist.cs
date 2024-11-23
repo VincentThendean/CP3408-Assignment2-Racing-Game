@@ -25,7 +25,8 @@ public class AudioSetlist : MonoBehaviour
         meshRender.enabled=false;
 
         if (purpose == "BGM"){
-            gameState = "Menu";
+            gameState = "Game";
+            Iterator = 1;
             }
 
         if (purpose == "SFX"){
@@ -41,10 +42,7 @@ public class AudioSetlist : MonoBehaviour
         
             if (purpose == "BGM"){
                 if (!audioSource.isPlaying){
-                    if (gameState == "Menu"){
-                        audioSource.clip = audioLib[0];
-                    }
-                    else if (gameState == "End"){
+                    if (gameState == "End"){
                         audioSource.clip = audioLib[6];
                     }
                     else if (gameState == "Game"){
@@ -64,24 +62,24 @@ public class AudioSetlist : MonoBehaviour
                 }
 
                 // replace with gamestate flag
-                if (Input.GetButtonDown("Fire2")){
-                    if (gameState == "Menu"){
-                        audioSource.Stop();
-                        gameState = "Game";
-                        Iterator = 1;
+                // if (Input.GetButtonDown("Fire2")){
+                //     if (gameState == "Menu"){
+                //         audioSource.Stop();
+                //         gameState = "Game";
+                //         Iterator = 1;
 
-                    }else if (gameState == "Game"){
-                        audioSource.Stop();
-                        gameState = "Menu";
-                    }
+                //     }else if (gameState == "Game"){
+                //         audioSource.Stop();
+                //         gameState = "Menu";
+                //     }
                  
-                }
+                // }
 
-                // Replace with win flag
-                if (Input.GetButtonDown("Fire3")){
-                    audioSource.Stop();
-                    gameState = "End";
-                }
+                // // Replace with win flag
+                // if (Input.GetButtonDown("Fire3")){
+                //     audioSource.Stop();
+                //     gameState = "End";
+                // }
 
         
         
