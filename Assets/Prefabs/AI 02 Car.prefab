@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9b1d5667ead5d449fddbf72461c189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carID: 1
-  carName: Green
+  carID: 2
+  carName: White
   finishTime: 0
   lapNumber: 0
   checkpointIndex: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  passByDistance: 2
+  passByDistance: 1
 --- !u!195 &7333557376285270455
 NavMeshAgent:
   m_ObjectHideFlags: 0

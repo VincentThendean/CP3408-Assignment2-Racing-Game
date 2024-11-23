@@ -27,7 +27,7 @@ public class AICarController : MonoBehaviour
         MoveToNextWaypoint();
     }
 
-    void Update()
+    void FixedUpdate()
     {
 
         if (!agent.pathPending && agent.remainingDistance <= passByDistance)
