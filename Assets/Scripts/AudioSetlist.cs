@@ -7,6 +7,7 @@ public class AudioSetlist : MonoBehaviour
     public string purpose;
     public AudioClip[] audioLib;
     public AudioSource audioSource;
+    public playerManager playerManager;
 
     int Iterator;
     int prevIndex;
@@ -22,6 +23,7 @@ public class AudioSetlist : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();  
         meshRender = this.GetComponent<MeshRenderer>();
+        playerManager = playerManager.GetComponent<playerManager>();
         meshRender.enabled=false;
 
         if (purpose == "BGM"){
@@ -100,10 +102,11 @@ public class AudioSetlist : MonoBehaviour
             }
 
             // Replace with speed flag
-            if (Input.GetButtonDown("Jump")){
+            if (playerManager.isBoosted){
                 if (!audioSource.isPlaying){
                     audioSource.clip = audioLib[1];
                     audioSource.Play();
+                    playerManager.isBoosted = false;
                     
                 }
             }

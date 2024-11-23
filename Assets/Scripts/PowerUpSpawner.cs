@@ -12,11 +12,16 @@ public class PowerUpSpawner : MonoBehaviour
     public float spawnTime = 5.0f;
 
     private List<GameObject> currentPowerUps = new List<GameObject>();
+     private MeshRenderer meshRender;
 
     // Start is called before the first frame update
     void Start()
     {
+
         InvokeRepeating(nameof(SpawnPowerUp), 0f, spawnTime);
+        meshRender = this.GetComponent<MeshRenderer>();
+        meshRender.enabled=false;
+
     }
 
     void SpawnPowerUp()
