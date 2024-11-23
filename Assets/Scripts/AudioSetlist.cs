@@ -15,16 +15,17 @@ public class AudioSetlist : MonoBehaviour
     bool fireTrigger;
     string gameState;
 
-    private List<double> durationLib;
+    private MeshRenderer meshRender;
 
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();  
+        meshRender = this.GetComponent<MeshRenderer>();
+        meshRender.enabled=false;
 
         if (purpose == "BGM"){
             gameState = "Menu";
-            durationLib = new List<double>();
             }
 
         if (purpose == "SFX"){
