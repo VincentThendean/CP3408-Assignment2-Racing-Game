@@ -52,4 +52,12 @@ public class Bullet : MonoBehaviour
         yield return new WaitForSeconds(slowEffectDuration);
         targetCar.speed = originalSpeed;
     }
+
+    private System.Collections.IEnumerator SlowDownAI(AICarController aiCar)
+    {
+        float originalSpeed = aiCar.agent.speed;
+        aiCar.agent.speed *= speedReductionFactor;
+        yield return new WaitForSeconds(slowEffectDuration);
+        aiCar.agent.speed = originalSpeed;
+    }
 }
