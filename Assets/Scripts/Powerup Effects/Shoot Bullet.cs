@@ -53,7 +53,7 @@ public class Bullet : MonoBehaviour
         targetCar.speed = originalSpeed;
     }
 
-    private System.Collections.IEnumerator SlowDownAI(AICarController aiCar)
+    private System.Collections.IEnumerator SlowDownAI(RacingAI aiCar)
     {
         float originalSpeed = aiCar.agent.speed;
         aiCar.agent.speed *= speedReductionFactor;
