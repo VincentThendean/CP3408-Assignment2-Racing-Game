@@ -7,6 +7,10 @@ public class Player_Drive : MonoBehaviour
     public float speed = 5.0f;
     private float currentSpeed;
     public float rotationSpeed = 200.0f;
+    public bool allowShoot = false;
+
+    public GameObject bulletPrefab;
+    public Transform bulletSpawnPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +37,12 @@ public class Player_Drive : MonoBehaviour
         // Rotate around our y-axis
         transform.Rotate(0, rotation, 0);
 
+
+        if (Input.GetKeyDown(KeyCode.Mouse0) && allowShoot)
+        {
+            ShootBullet();
+        }
+
     }
 
     public IEnumerator SpeedBoost(float duration, float multiplier)
@@ -40,6 +50,35 @@ public class Player_Drive : MonoBehaviour
         currentSpeed = speed * multiplier;
         yield return new WaitForSeconds(duration);
         currentSpeed = speed;
+    }
+
+    public IEnumerator AllowShooting(float duration)
+    {
+        allowShoot = true;
+        yield return new WaitForSeconds(duration);
+        allowShoot = false;
+    }
+
+    //public void Shooting(float duration, float bulletCount, float bulletSpeed, float bulletLifetime)
+    //{
+    //    int i = 0;
+    //    Debug.Log("Shooting Script started");
+    //    if (Input.GetKeyDown(KeyCode.Mouse0) && allowShoot)
+    //    {
+    //        ShootBullet(bulletSpeed, bulletLifetime);
+    //    }
+    //}
+
+    void ShootBullet()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        Rigidbody rb = bullet.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.velocity = bulletSpawnPoint.forward * 10;
+        }
+
+        Destroy(bullet, 5);
     }
 
 }

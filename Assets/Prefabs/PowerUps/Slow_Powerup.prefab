@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &480534938572555332
+--- !u!1 &1434555364355831717
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2372853181037325630}
-  - component: {fileID: 3461438332752930739}
-  - component: {fileID: 3142919468564096906}
-  - component: {fileID: 3053481893200366170}
-  - component: {fileID: 5815859597026928790}
+  - component: {fileID: 1376966982404993523}
+  - component: {fileID: 1876616028089613038}
+  - component: {fileID: 8828091665403537234}
+  - component: {fileID: 8222979895924798082}
+  - component: {fileID: 924986198825209011}
   m_Layer: 0
-  m_Name: PowerUp_Spawner
+  m_Name: Slow_Powerup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2372853181037325630
+--- !u!4 &1376966982404993523
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480534938572555332}
+  m_GameObject: {fileID: 1434555364355831717}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -14.543, y: 0.23, z: 5.9714074}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15.231, y: 0.254, z: 6.142}
+  m_LocalScale: {x: 0.1939, y: 0.1939, z: 0.1939}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!33 &3461438332752930739
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &1876616028089613038
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480534938572555332}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &3142919468564096906
+  m_GameObject: {fileID: 1434555364355831717}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &8828091665403537234
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480534938572555332}
+  m_GameObject: {fileID: 1434555364355831717}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -85,13 +85,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &3053481893200366170
-SphereCollider:
+--- !u!136 &8222979895924798082
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480534938572555332}
+  m_GameObject: {fileID: 1434555364355831717}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -100,26 +100,24 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5815859597026928790
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &924986198825209011
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480534938572555332}
+  m_GameObject: {fileID: 1434555364355831717}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5de876e1ab73ed24b9717db5fa0a1c0a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4580ac1ccd2c2154e986a47c002039bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpPrefabs:
-  - {fileID: 3335968244774197057, guid: 44e065f24ac74f048a7a9f3b0f5409c3, type: 3}
-  spawnStep: 0.5
-  spawnCount: 4
-  spawnTime: 5
+  powerUp: {fileID: 11400000, guid: 7ed5893e4f44c5e489049971e4d4b0ac, type: 2}
