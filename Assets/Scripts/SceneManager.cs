@@ -11,7 +11,7 @@ public class SceneController : MonoBehaviour
     }
     public void PlayGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Racetrack01");
     }
     public void QuitGame()
     {
