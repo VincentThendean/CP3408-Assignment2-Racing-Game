@@ -1,13 +1,16 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.AI;
 
-public class RacingAI : MonoBehaviour
+public class AICarController : MonoBehaviour
 {
     public NavMeshAgent agent;  
     public Transform[] waypoints;  
 
     private int currentWaypointIndex = 0;
     public float passByDistance = 2f;
+
+    private NavMeshAgent racer;
 
     void Start()
     {
@@ -27,7 +30,7 @@ public class RacingAI : MonoBehaviour
         MoveToNextWaypoint();
     }
 
-    void Update()
+    void FixedUpdate()
     {
 
         if (!agent.pathPending && agent.remainingDistance <= passByDistance)
@@ -47,7 +50,16 @@ public class RacingAI : MonoBehaviour
         currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
     }
 
-    void OnDrawGizmos()
+    public IEnumerator SlowDownAI(float duration, float multiplier)
+    {        
+        racer = GetComponent<NavMeshAgent>();
+        float originalSpeed = racer.speed;
+        racer.speed *= multiplier;
+        yield return new WaitForSeconds(duration);
+        racer.speed = originalSpeed;
+    }
+
+        void OnDrawGizmos()
     {
         if (waypoints == null || waypoints.Length < 2)
             return;
