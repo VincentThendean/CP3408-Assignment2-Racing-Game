@@ -7,7 +7,7 @@ public class AudioSetlist : MonoBehaviour
     public string purpose;
     public AudioClip[] audioLib;
     public AudioSource audioSource;
-    public playerManager playerManager;
+    playerManager playerStatus;
 
     int Iterator;
     int prevIndex;
@@ -23,7 +23,7 @@ public class AudioSetlist : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();  
         meshRender = this.GetComponent<MeshRenderer>();
-        playerManager = playerManager.GetComponent<playerManager>();
+        playerStatus = FindObjectOfType<playerManager>();
         meshRender.enabled=false;
 
         if (purpose == "BGM"){
@@ -88,27 +88,18 @@ public class AudioSetlist : MonoBehaviour
                 }
 
         else if (purpose == "SFX"){
-            // Replace with fire flag
-            if (Input.GetButtonDown("Fire1")){
-                
-                fireTrigger = true;
+            if (playerStatus.hasBullets){
                 if (!audioSource.isPlaying){
-                    if (fireTrigger){
                     audioSource.clip = audioLib[0];
                     audioSource.Play();
-                    fireTrigger = false;
-                    }
+                    playerStatus.hasBullets = false;
                 }
             }
 
-            // Replace with speed flag
-            if (playerManager.isBoosted){
-                if (!audioSource.isPlaying){
-                    audioSource.clip = audioLib[1];
-                    audioSource.Play();
-                    playerManager.isBoosted = false;
-                    
-                }
+            if (playerStatus.isBoosted){
+                audioSource.clip = audioLib[1];
+                audioSource.Play();
+                playerStatus.isBoosted = false;
             }
             
         }           

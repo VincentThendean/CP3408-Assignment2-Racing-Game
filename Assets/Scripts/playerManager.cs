@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class playerManager : MonoBehaviour
 {
-    public bool isBoosted = false;
-    public bool hasBullets = false;
-    public bool gameStateEnd = false;
+    public bool isBoosted;
+    public bool hasBullets;
+    public bool gameStateEnd;
+
+    void Start(){
+        isBoosted = false;
+        hasBullets = false;
+        gameStateEnd = false;
+    }
 }
