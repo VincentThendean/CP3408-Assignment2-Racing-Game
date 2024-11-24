@@ -58,6 +58,15 @@ public class Bullet : MonoBehaviour
         float originalSpeed = aiCar.agent.speed;
         aiCar.agent.speed *= speedReductionFactor;
         yield return new WaitForSeconds(slowEffectDuration);
+
+        float elapsedTime = 0.0f;
+        while (elapsedTime < slowEffectDuration)
+        {
+            aiCar.agent.speed = Mathf.Lerp(originalSpeed * speedReductionFactor, originalSpeed, elapsedTime / slowEffectDuration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
         aiCar.agent.speed = originalSpeed;
     }
 }
