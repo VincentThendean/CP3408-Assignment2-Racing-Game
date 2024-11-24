@@ -131,7 +131,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  passByDistance: 2
+  passByDistance: 1
 --- !u!195 &3920898565202414116
 NavMeshAgent:
   m_ObjectHideFlags: 0
