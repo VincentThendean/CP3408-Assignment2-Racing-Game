@@ -51,9 +51,7 @@ public class AICarController : MonoBehaviour
     }
 
     public IEnumerator SlowDownAI(float duration, float multiplier)
-    {
-        //private NavMeshAgent racer = racer.GetComponent<NavMeshAgent>().speed;
-        
+    {        
         racer = GetComponent<NavMeshAgent>();
         float originalSpeed = racer.speed;
         racer.speed *= multiplier;

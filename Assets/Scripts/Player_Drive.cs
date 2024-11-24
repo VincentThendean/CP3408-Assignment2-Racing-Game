@@ -7,7 +7,9 @@ public class Player_Drive : MonoBehaviour
     public float speed = 5.0f;
     private float currentSpeed;
     public float rotationSpeed = 200.0f;
+
     public bool allowShoot = false;
+    public float bulletCount = 0f;
 
     public GameObject bulletPrefab;
     public Transform bulletSpawnPoint;
@@ -38,8 +40,9 @@ public class Player_Drive : MonoBehaviour
         transform.Rotate(0, rotation, 0);
 
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && allowShoot)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && allowShoot && bulletCount>0)
         {
+            bulletCount--;
             ShootBullet();
         }
 
@@ -52,11 +55,13 @@ public class Player_Drive : MonoBehaviour
         currentSpeed = speed;
     }
 
-    public IEnumerator AllowShooting(float duration)
+    public IEnumerator AllowShooting(float duration, float count)
     {
         allowShoot = true;
+        bulletCount = count;
         yield return new WaitForSeconds(duration);
         allowShoot = false;
+        bulletCount = 0f;
     }
 
     //public void Shooting(float duration, float bulletCount, float bulletSpeed, float bulletLifetime)

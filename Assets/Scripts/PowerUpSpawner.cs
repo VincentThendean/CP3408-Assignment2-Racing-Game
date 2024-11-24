@@ -40,6 +40,7 @@ public class PowerUpSpawner : MonoBehaviour
             GameObject newPowerUp = Instantiate(powerUpPrefabs[randomIndex],spawnPosition,Quaternion.identity);
             currentPowerUps.Add(newPowerUp);
 
+            randomIndex = Random.Range(0, powerUpPrefabs.Length);
             spawnPosition += spaceInterval;
         }
     }
