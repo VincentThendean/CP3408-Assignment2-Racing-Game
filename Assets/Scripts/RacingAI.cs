@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AICarController : MonoBehaviour
+public class RacingAI : MonoBehaviour
 {
     public NavMeshAgent agent;  
     public Transform[] waypoints;  
