@@ -146,4 +146,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slowEffectDuration: 5
-  speedReductionFactor: 0.5
+  speedReductionFactor: 0.1
